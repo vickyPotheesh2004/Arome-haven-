@@ -1,0 +1,48 @@
+{
+  "name": "Arome Haven Development",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "dsznajder.es7-react-js-snippets",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "streetsidesoftware.code-spell-checker",
+        "GitHub.copilot",
+        "GitHub.vscode-pull-request-github"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "eslint.validate": ["typescript", "typescriptreact"],
+        "eslint.workingDirectories": [{"mode": "auto"}],
+        "files.exclude": {
+          "**/node_modules": true,
+          "**/dist": true,
+          "**/coverage": true
+        },
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "vitest.enable": true
+      }
+    }
+  },
+  "postCreateCommand": "cd src && npm install",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+  ]
+}

@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/src"
     schedule:
       interval: "weekly"
       day: "monday"
@@ -10,6 +10,11 @@ updates:
       - "vickyPotheesh2004"
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
     
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -18,3 +23,11 @@ updates:
       day: "monday"
     commit-message:
       prefix: "chore(actions)"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    commit-message:
+      prefix: "chore(docker)"

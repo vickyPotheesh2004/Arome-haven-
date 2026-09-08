@@ -1,7 +1,7 @@
 {
   "name": "aroma-haven",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,14 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
+    "test:ci": "vitest --run --coverage --coverage.reporter=json-summary --coverage.reporter=text",
     "lint": "eslint src --ext .ts,.tsx",
-    "typecheck": "tsc --noEmit"
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "typecheck:strict": "tsc --noEmit --strict"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "@google/genai": "^1.31.0",
@@ -35,5 +41,8 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "vitest": "^4.1.11"
+  },
+  "volta": {
+    "node": "20.18.0"
   }
 }
