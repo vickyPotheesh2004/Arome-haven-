@@ -45,7 +45,7 @@ jobs:
           echo "✅ Coverage $COVERAGE% meets 70% threshold"
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
           files: ./src/coverage/coverage-final.json
           fail_ci_if_error: false
